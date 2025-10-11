@@ -10,8 +10,8 @@
     "test": "vitest run",
     "preview": "vite preview",
     "deploy": "wrangler pages deploy dist",
-    "deploy:production": "wrangler pages deploy dist --project-name advaitswaroopservices",
-    "deploy:staging": "wrangler pages deploy dist --project-name advaitswaroopservices-staging"
+    "deploy:production": "wrangler pages deploy dist --branch main --project-name advaitswaroopservices",
+    "deploy:staging": "wrangler pages deploy dist --branch main --project-name advaitswaroopservices-staging"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",
