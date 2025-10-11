@@ -49,6 +49,7 @@ import RechargePage from "./pages/b2c/RechargePage";
 // Admin pages
 import UnifiedLoginPage from "./pages/admin/UnifiedLoginPage";
 import EnhancedAdminDashboard from "./pages/admin/EnhancedAdminDashboard";
+import TestPage from "./pages/TestPage";
 
 const rootRoute = createRootRoute({
   component: () => {
@@ -246,6 +247,12 @@ const enhancedAdminDashboardRoute = createRoute({
   component: EnhancedAdminDashboard,
 });
 
+const testRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/test",
+  component: TestPage,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   homeRoute,
@@ -282,6 +289,8 @@ const routeTree = rootRoute.addChildren([
   adminLoginRoute,
   adminDashboardRoute,
   enhancedAdminDashboardRoute,
+  // Test route
+  testRoute,
 ]);
 
 const router = createRouter({
@@ -291,6 +300,8 @@ const router = createRouter({
   scrollRestoration: true,
   defaultStructuralSharing: true,
   defaultPreloadStaleTime: 0,
+  basepath: "/",
+  defaultNotFoundComponent: () => <div>Page not found</div>,
 });
 
 declare module "@tanstack/react-router" {
