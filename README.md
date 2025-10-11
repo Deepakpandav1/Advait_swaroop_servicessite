@@ -5,6 +5,7 @@ Welcome to **Advait Swaroop Services**, your comprehensive digital services plat
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - pnpm (recommended) or npm
 
@@ -43,6 +44,7 @@ pnpm preview
 ## 📱 Features
 
 ### Government to Citizen (G2C) Services
+
 - Aadhaar Card Services
 - PAN Card Services
 - PMJAY Health Insurance
@@ -50,18 +52,21 @@ pnpm preview
 - Digital Signature Certificates
 
 ### Business to Citizen (B2C) Services
+
 - Digital Signature Certificates
 - Mobile Recharge Services
 - Business Registration Support
 - Corporate Services
 
 ### Travel Services
+
 - Flight Booking
 - Bus Booking
 - Rail Ticket Booking
 - Visa Services
 
 ### Additional Features
+
 - Comprehensive SEO optimization
 - Google Analytics 4 integration
 - Google Tag Manager tracking
@@ -73,6 +78,7 @@ pnpm preview
 ## 🔧 Development
 
 ### Project Structure
+
 ```
 src/
 ├── components/          # Reusable React components
@@ -84,6 +90,7 @@ src/
 ```
 
 ### Key Components
+
 - **Header:** Navigation and branding
 - **Footer:** Links and company information
 - **Breadcrumb:** Navigation breadcrumbs
@@ -93,17 +100,20 @@ src/
 ## 📊 Analytics & SEO
 
 ### Google Analytics 4
+
 - **Tracking ID:** G-YW0VGF6P2D
 - **Enhanced E-commerce:** Configured
 - **Custom Events:** Business-specific tracking
 - **Conversion Goals:** Form submissions and consultations
 
 ### Google Tag Manager
+
 - **Container ID:** GTM-M4TWQ6FF
 - **Data Layer:** Enhanced for business tracking
 - **Custom Tags:** Service interactions and conversions
 
 ### SEO Features
+
 - Comprehensive meta tags for all pages
 - Structured data (JSON-LD) for search engines
 - XML sitemap with all pages
@@ -114,7 +124,9 @@ src/
 ## 🚀 Deployment
 
 ### Cloudflare Pages (Recommended)
+
 The project is configured for deployment on Cloudflare Pages with:
+
 - Automatic builds from Git
 - Global CDN with 200+ edge locations
 - Enterprise-level security
@@ -122,6 +134,7 @@ The project is configured for deployment on Cloudflare Pages with:
 - Performance optimization
 
 ### Build Configuration
+
 ```bash
 # Build command
 npm run build
@@ -133,12 +146,14 @@ dist/
 ## 📈 Performance
 
 ### Core Web Vitals
+
 - **First Contentful Paint:** < 1.5 seconds
 - **Largest Contentful Paint:** < 2.5 seconds
 - **Cumulative Layout Shift:** < 0.1
 - **First Input Delay:** < 100ms
 
 ### Optimization Features
+
 - Code splitting for optimal loading
 - Image optimization
 - CSS and JavaScript minification
@@ -148,6 +163,7 @@ dist/
 ## 🛡️ Security
 
 ### Security Headers
+
 - X-Frame-Options: DENY
 - X-Content-Type-Options: nosniff
 - X-XSS-Protection: 1; mode=block
@@ -155,6 +171,7 @@ dist/
 - Content-Security-Policy: Comprehensive CSP
 
 ### Additional Security
+
 - HTTPS enforcement
 - DDoS protection
 - Bot protection
@@ -163,6 +180,7 @@ dist/
 ## 📞 Support
 
 For support and inquiries:
+
 - **Website:** [www.advaitswaroopservices.com](https://www.advaitswaroopservices.com)
 - **Email:** Contact through the website
 - **Services:** Government, Travel, Business solutions
