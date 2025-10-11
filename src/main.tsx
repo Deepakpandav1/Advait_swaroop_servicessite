@@ -234,6 +234,12 @@ const adminLoginRoute = createRoute({
   component: UnifiedLoginPage,
 });
 
+const adminDashboardRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin/dashboard",
+  component: EnhancedAdminDashboard,
+});
+
 const enhancedAdminDashboardRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/admin/enhanced-dashboard",
@@ -274,6 +280,7 @@ const routeTree = rootRoute.addChildren([
   rechargeRoute,
   // Admin routes
   adminLoginRoute,
+  adminDashboardRoute,
   enhancedAdminDashboardRoute,
 ]);
 

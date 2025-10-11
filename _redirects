@@ -5,42 +5,5 @@ https://adservices.com https://www.advaitswaroopservices.com/ 301!
 # Redirect www to non-www (or vice versa based on preference)
 https://advaitswaroopservices.com/* https://www.advaitswaroopservices.com/:splat 301!
 
-# SPA routing - all routes should serve index.html
-/* /index.html 200
-
-# Specific redirects for SEO
-/services /services 200
-/travel /travel 200
-/g2c /g2c 200
-/b2c /b2c 200
-/about /about 200
-/contact /contact 200
-/resources /resources 200
-/careers /careers 200
-/partners /partners 200
-
-# Admin routes
-/admin /admin 200
-/admin/login /admin/login 200
-/admin/dashboard /admin/dashboard 200
-
-# Travel sub-routes
-/travel/air-ticket /travel/air-ticket 200
-/travel/bus-booking /travel/bus-booking 200
-/travel/rail-ticket /travel/rail-ticket 200
-/travel/visa /travel/visa 200
-
-# G2C sub-routes
-/g2c/aadhaar /g2c/aadhaar 200
-/g2c/eshram /g2c/eshram 200
-/g2c/pmjay /g2c/pmjay 200
-
-# B2C sub-routes
-/b2c/dsc /b2c/dsc 200
-/b2c/recharge /b2c/recharge 200
-
-# Resources sub-routes
-/resources/faq /resources/faq 200
-/resources/implementation /resources/implementation 200
-/resources/right-to-information /resources/right-to-information 200
-/resources/rf /resources/rf 200
+# SPA routing - catch all routes and serve index.html
+/*    /index.html   200

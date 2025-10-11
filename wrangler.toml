@@ -60,19 +60,4 @@ for = "*.html"
 [headers.values]
 Cache-Control = "public, max-age=3600"
 
-# Redirects
-[[redirects]]
-from = "/adservices"
-to = "/"
-status = 301
-
-[[redirects]]
-from = "/adservices/*"
-to = "/:splat"
-status = 301
-
-# SPA routing
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+# Note: Redirects are handled by _redirects file for Cloudflare Pages
