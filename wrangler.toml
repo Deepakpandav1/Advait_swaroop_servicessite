@@ -6,6 +6,9 @@ compatibility_flags = ["nodejs_compat"]
 [assets]
 directory = "./dist"
 
+# Pages configuration
+pages_build_output_dir = "./dist"
+
 # Environment variables
 [vars]
 NODE_ENV = "production"
