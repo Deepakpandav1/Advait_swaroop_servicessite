@@ -1,6 +1,9 @@
 name = "advaitswaroopservices"
 compatibility_date = "2024-12-19"
 
+# Pages configuration
+pages_build_output_dir = "./dist"
+
 [build]
 command = "pnpm run build"
 

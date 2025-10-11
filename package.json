@@ -9,7 +9,7 @@
     "serve": "vite preview",
     "test": "vitest run",
     "preview": "vite preview",
-    "deploy": "wrangler pages deploy ./dist",
+    "deploy": "wrangler pages deploy ./dist --project-name advaitswaroopservices",
     "deploy:production": "wrangler pages deploy ./dist --project-name advaitswaroopservices",
     "deploy:staging": "wrangler pages deploy ./dist --project-name advaitswaroopservices-staging"
   },
