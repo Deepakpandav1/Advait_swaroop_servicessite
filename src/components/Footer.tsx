@@ -79,16 +79,6 @@ export default function Footer() {
 
             {/* Newsletter & Social */}
             <div>
-              {/* Visitor Counter */}
-              <div className="bg-gradient-to-r from-[#E6B837] to-[#d4a94b] rounded-xl p-4 text-center mb-6">
-                <div className="text-[#0b234a] font-bold text-sm mb-1">
-                  Total Visitors
-                </div>
-                <div className="text-[#0b234a] font-bold text-2xl">
-                  {visitorCount.toLocaleString()}
-                </div>
-              </div>
-
               {/* Social Media */}
               <div>
                 <h4 className="text-white font-semibold mb-3">Follow Us</h4>
