@@ -1,5 +1,6 @@
 {
-  "name": "adservices",
+
+  "name": "advaitsswaroopservices",
   "private": true,
   "type": "module",
   "scripts": {
@@ -38,5 +39,8 @@
     "vitest": "^3.0.5",
     "web-vitals": "^5.1.0",
     "wrangler": "^3.78.12"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
