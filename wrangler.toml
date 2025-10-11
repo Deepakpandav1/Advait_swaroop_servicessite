@@ -60,4 +60,8 @@ for = "*.html"
 [headers.values]
 Cache-Control = "public, max-age=3600"
 
-# Note: Redirects are handled by _redirects file for Cloudflare Pages
+# SPA routing for Cloudflare Pages
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

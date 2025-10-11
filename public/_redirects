@@ -1,0 +1,9 @@
+# Redirect old domain to new domain
+https://adservices.com/* https://www.advaitswaroopservices.com/:splat 301!
+https://adservices.com https://www.advaitswaroopservices.com/ 301!
+
+# Redirect www to non-www (or vice versa based on preference)
+https://advaitswaroopservices.com/* https://www.advaitswaroopservices.com/:splat 301!
+
+# SPA routing - catch all routes and serve index.html
+/*    /index.html   200
