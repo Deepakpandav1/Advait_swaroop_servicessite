@@ -1,20 +1,14 @@
-# Project name
 name = "advaitswaroopservices"
+compatibility_date = "2024-12-19"
 
-# The main folder that contains your static build (Vite outputs to dist)
-type = "javascript"
-
-# The production branch (optional)
-production_branch = "main"
-
-# Build configuration
 [build]
 command = "pnpm run build"
-directory = "dist"
 
-# Environment variables
+[assets]
+directory = "./dist"
+
 [vars]
 NODE_ENV = "production"
 SITE_URL = "https://www.advaitswaroopservices.com"
-ANALYTICS_ID = "G-YW0VGF6P2D"
 GTM_ID = "GTM-M4TWQ6FF"
+ANALYTICS_ID = "G-YW0VGF6P2D"
