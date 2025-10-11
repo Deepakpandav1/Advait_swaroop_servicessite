@@ -1,0 +1,92 @@
+name = "advait-swaroop-services"
+compatibility_date = "2024-12-19"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+name = "advait-swaroop-services"
+route = "www.advaitswaroopservices.com/*"
+
+[env.staging]
+name = "advait-swaroop-services-staging"
+route = "staging.advaitswaroopservices.com/*"
+
+# Pages configuration
+[pages]
+name = "advait-swaroop-services"
+source = "./dist"
+
+# Build configuration
+[build]
+command = "npm run build"
+cwd = "."
+
+# Environment variables
+[vars]
+NODE_ENV = "production"
+SITE_URL = "https://www.advaitswaroopservices.com"
+ANALYTICS_ID = "G-YW0VGF6P2D"
+GTM_ID = "GTM-M4TWQ6FF"
+
+# Headers for security and performance
+[[headers]]
+for = "/*"
+[headers.values]
+X-Frame-Options = "DENY"
+X-Content-Type-Options = "nosniff"
+X-XSS-Protection = "1; mode=block"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache configuration
+[[headers]]
+for = "/assets/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "*.css"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "*.js"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "*.png"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "*.jpg"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "*.svg"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML files
+[[headers]]
+for = "*.html"
+[headers.values]
+Cache-Control = "public, max-age=3600"
+
+# Redirects
+[[redirects]]
+from = "/adservices"
+to = "/"
+status = 301
+
+[[redirects]]
+from = "/adservices/*"
+to = "/:splat"
+status = 301
+
+# SPA routing
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

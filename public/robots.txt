@@ -1,0 +1,17 @@
+# Advait Swaroop Services - Digital Services Platform
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl all pages
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://www.advaitswaroopservices.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
