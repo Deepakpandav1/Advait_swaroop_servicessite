@@ -5,7 +5,6 @@
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 # Performance Headers
 /assets/*
@@ -26,28 +25,6 @@
 *.svg
   Cache-Control: public, max-age=31536000, immutable
 
-*.webp
-  Cache-Control: public, max-age=31536000, immutable
-
-*.avif
-  Cache-Control: public, max-age=31536000, immutable
-
 # HTML files
 *.html
   Cache-Control: public, max-age=3600
-
-# Service Worker
-/sw.js
-  Cache-Control: public, max-age=0, must-revalidate
-
-# Manifest
-/manifest.json
-  Cache-Control: public, max-age=86400
-
-# Sitemap
-/sitemap.xml
-  Cache-Control: public, max-age=86400
-
-# Robots
-/robots.txt
-  Cache-Control: public, max-age=86400

@@ -1,0 +1,12 @@
+name = "advaitsswaroopservices"
+compatibility_date = "2024-12-19"
+
+# Cloudflare Pages configuration
+pages_build_output_dir = "./dist"
+
+# Environment variables
+[vars]
+NODE_ENV = "production"
+SITE_URL = "https://www.advaitswaroopservices.com"
+ANALYTICS_ID = "G-YW0VGF6P2D"
+GTM_ID = "GTM-M4TWQ6FF"
