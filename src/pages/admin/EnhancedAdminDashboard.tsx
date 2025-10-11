@@ -31,8 +31,10 @@ import {
   Key,
   UserPlus,
   Settings,
+  MapPin,
 } from "lucide-react";
 import PasswordChangeModal from "../../components/PasswordChangeModal";
+import { LocationNotificationDashboard } from "../../components/LocationNotificationDashboard";
 import {
   getUserById,
   getUsers,
@@ -115,6 +117,8 @@ export default function EnhancedAdminDashboard() {
   const [showUserManagement, setShowUserManagement] = useState(false);
   const [showCreateUser, setShowCreateUser] = useState(false);
   const [showTickets, setShowTickets] = useState(false);
+  const [showLocationTracking, setShowLocationTracking] = useState(false);
+  const [showQueries, setShowQueries] = useState(false);
   const [adminUsers, setAdminUsers] = useState<any[]>([]);
   const [newUser, setNewUser] = useState({
     username: "",
@@ -211,6 +215,31 @@ export default function EnhancedAdminDashboard() {
   useEffect(() => {
     filterQueries();
   }, [queries, searchTerm, statusFilter, typeFilter]);
+
+  // Auto-refresh tickets every 30 seconds when tickets are shown
+  useEffect(() => {
+    if (showTickets) {
+      const interval = setInterval(() => {
+        const loadedTickets = getTickets();
+        setTickets(loadedTickets);
+        console.log("Auto-refreshing tickets...");
+      }, 30000); // 30 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [showTickets]);
+
+  // Auto-refresh queries every 30 seconds when queries are shown
+  useEffect(() => {
+    if (showQueries) {
+      const interval = setInterval(() => {
+        loadQueries();
+        console.log("Auto-refreshing queries...");
+      }, 30000); // 30 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [showQueries]);
 
   const loadQueries = () => {
     // Load from all sources: travel, contact, and admin queries
@@ -762,51 +791,99 @@ export default function EnhancedAdminDashboard() {
         />
       </div>
       {/* Header */}
-      <div className="bg-[#0b234a] text-white p-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold">Enhanced Admin Dashboard</h1>
-            <p className="text-[#E6B837]">
-              {username} - {userRole} ({userDepartment})
-            </p>
+      <div className="bg-[#0b234a] text-white p-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold">Enhanced Admin Dashboard</h1>
+              <p className="text-[#E6B837] text-lg mt-1">
+                Welcome back, {username} - {userRole} ({userDepartment})
+              </p>
+            </div>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={() => setShowPasswordChange(true)}
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center space-x-2"
+              >
+                <Key className="w-4 h-4" />
+                <span>Change Password</span>
+              </button>
+              <button
+                onClick={logout}
+                className="bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors flex items-center space-x-2"
+              >
+                <LogOut className="w-4 h-4" />
+                <span>Logout</span>
+              </button>
+            </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={() => setShowPasswordChange(true)}
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center space-x-2"
-            >
-              <Key className="w-4 h-4" />
-              <span>Change Password</span>
-            </button>
+        </div>
+      </div>
+
+      {/* Navigation Section */}
+      <div className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             {userRole === "Branch Manager" && userDepartment === "All" && (
               <button
                 onClick={() => setShowUserManagement(!showUserManagement)}
-                className="bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-700 transition-colors flex items-center space-x-2"
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 min-w-[160px] justify-center ${
+                  showUserManagement
+                    ? "bg-purple-600 text-white shadow-lg transform scale-105"
+                    : "bg-purple-100 text-purple-700 hover:bg-purple-200 hover:shadow-md"
+                }`}
               >
                 <UserPlus className="w-4 h-4" />
                 <span>Manage Users</span>
               </button>
             )}
+
             <button
               onClick={() => setShowTickets(!showTickets)}
-              className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center space-x-2"
+              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 min-w-[160px] justify-center ${
+                showTickets
+                  ? "bg-green-600 text-white shadow-lg transform scale-105"
+                  : "bg-green-100 text-green-700 hover:bg-green-200 hover:shadow-md"
+              }`}
             >
               <MessageSquare className="w-4 h-4" />
               <span>Tickets ({getTicketStats().total})</span>
             </button>
+
+            <button
+              onClick={() => setShowLocationTracking(!showLocationTracking)}
+              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 min-w-[160px] justify-center ${
+                showLocationTracking
+                  ? "bg-purple-600 text-white shadow-lg transform scale-105"
+                  : "bg-purple-100 text-purple-700 hover:bg-purple-200 hover:shadow-md"
+              }`}
+            >
+              <MapPin className="w-4 h-4" />
+              <span>Location Tracking</span>
+            </button>
+
+            <button
+              onClick={() => setShowQueries(!showQueries)}
+              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 min-w-[160px] justify-center ${
+                showQueries
+                  ? "bg-indigo-600 text-white shadow-lg transform scale-105"
+                  : "bg-indigo-100 text-indigo-700 hover:bg-indigo-200 hover:shadow-md"
+              }`}
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Queries</span>
+            </button>
+
             <button
               onClick={() => setShowStats(!showStats)}
-              className="bg-[#E6B837] text-[#0b234a] px-4 py-2 rounded-lg font-semibold hover:bg-[#d4a94b] transition-colors flex items-center space-x-2"
+              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center space-x-2 min-w-[160px] justify-center ${
+                showStats
+                  ? "bg-[#E6B837] text-[#0b234a] shadow-lg transform scale-105"
+                  : "bg-yellow-100 text-yellow-700 hover:bg-yellow-200 hover:shadow-md"
+              }`}
             >
               <BarChart3 className="w-4 h-4" />
-              <span>Stats</span>
-            </button>
-            <button
-              onClick={logout}
-              className="flex items-center space-x-2 bg-red-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors"
-            >
-              <LogOut className="w-4 h-4" />
-              <span>Logout</span>
+              <span>Analytics</span>
             </button>
           </div>
         </div>
@@ -1458,7 +1535,7 @@ export default function EnhancedAdminDashboard() {
                 </h3>
                 <button
                   onClick={() => setShowCreateUser(true)}
-                  className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center space-x-2"
+                  className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center space-x-2 min-w-[140px] justify-center"
                 >
                   <UserPlus className="w-4 h-4" />
                   <span>Create New User</span>
@@ -1641,7 +1718,7 @@ export default function EnhancedAdminDashboard() {
                     <div className="flex space-x-3">
                       <button
                         onClick={handleResolveUsernameConflict}
-                        className="bg-[#0b234a] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#1e3a5f] transition-colors"
+                        className="bg-[#0b234a] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1e3a5f] transition-colors min-w-[200px] justify-center"
                       >
                         Create with Custom Username
                       </button>
@@ -2135,7 +2212,7 @@ export default function EnhancedAdminDashboard() {
                   />
                   <button
                     onClick={handleAddTicketComment}
-                    className="bg-[#0b234a] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#1e3a5f] transition-colors"
+                    className="bg-[#0b234a] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1e3a5f] transition-colors min-w-[100px] justify-center"
                   >
                     Add
                   </button>
@@ -2241,6 +2318,201 @@ export default function EnhancedAdminDashboard() {
                   Cancel
                 </button>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* Location Tracking Section */}
+        {showLocationTracking && (
+          <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-2xl font-bold text-[#0b234a]">
+                Location-Based Service Tracking
+              </h3>
+              <div className="text-sm text-gray-600">
+                Track service searches within 100KM radius
+              </div>
+            </div>
+
+            <LocationNotificationDashboard />
+          </div>
+        )}
+
+        {/* Queries Section */}
+        {showQueries && (
+          <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-2xl font-bold text-[#0b234a]">
+                G2C & B2C Service Queries
+              </h3>
+              <div className="text-sm text-gray-600">
+                Manage customer service requests and consultations
+              </div>
+            </div>
+
+            {/* Query Statistics */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="flex items-center">
+                  <MessageSquare className="w-8 h-8 text-blue-600" />
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-gray-600">
+                      Total Queries
+                    </p>
+                    <p className="text-2xl font-bold text-blue-600">
+                      {queries.length}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-green-50 p-4 rounded-lg">
+                <div className="flex items-center">
+                  <CheckCircle className="w-8 h-8 text-green-600" />
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-gray-600">
+                      Resolved
+                    </p>
+                    <p className="text-2xl font-bold text-green-600">
+                      {queries.filter((q) => q.status === "Resolved").length}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-yellow-50 p-4 rounded-lg">
+                <div className="flex items-center">
+                  <Clock className="w-8 h-8 text-yellow-600" />
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-gray-600">Pending</p>
+                    <p className="text-2xl font-bold text-yellow-600">
+                      {queries.filter((q) => q.status === "Pending").length}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-red-50 p-4 rounded-lg">
+                <div className="flex items-center">
+                  <AlertTriangle className="w-8 h-8 text-red-600" />
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-gray-600">Urgent</p>
+                    <p className="text-2xl font-bold text-red-600">
+                      {queries.filter((q) => q.priority === "High").length}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Search and Filter */}
+            <div className="flex flex-col md:flex-row gap-4 mb-6">
+              <div className="flex-1">
+                <input
+                  type="text"
+                  placeholder="Search queries..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+              <select
+                value={statusFilter}
+                onChange={(e) => setStatusFilter(e.target.value)}
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="All">All Status</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+                <option value="Closed">Closed</option>
+              </select>
+              <select
+                value={typeFilter}
+                onChange={(e) => setTypeFilter(e.target.value)}
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="All">All Types</option>
+                <option value="G2C">G2C Services</option>
+                <option value="B2C">B2C Services</option>
+                <option value="Travel">Travel</option>
+                <option value="General">General</option>
+              </select>
+            </div>
+
+            {/* Queries List */}
+            <div className="space-y-4">
+              {filteredQueries.length === 0 ? (
+                <div className="text-center py-8">
+                  <MessageSquare className="w-12 h-12 mx-auto text-gray-300 mb-4" />
+                  <p className="text-gray-500">
+                    No queries found matching your filters
+                  </p>
+                </div>
+              ) : (
+                filteredQueries.map((query) => (
+                  <div
+                    key={query.id}
+                    className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
+                    onClick={() => {
+                      setSelectedQuery(query);
+                      setShowModal(true);
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <span
+                            className={`px-2 py-1 rounded-full text-xs font-medium ${
+                              query.status === "Resolved"
+                                ? "bg-green-100 text-green-800"
+                                : query.status === "Pending"
+                                ? "bg-yellow-100 text-yellow-800"
+                                : query.status === "In Progress"
+                                ? "bg-blue-100 text-blue-800"
+                                : "bg-gray-100 text-gray-800"
+                            }`}
+                          >
+                            {query.status}
+                          </span>
+                          <span
+                            className={`px-2 py-1 rounded-full text-xs font-medium ${
+                              query.priority === "High"
+                                ? "bg-red-100 text-red-800"
+                                : query.priority === "Medium"
+                                ? "bg-yellow-100 text-yellow-800"
+                                : "bg-green-100 text-green-800"
+                            }`}
+                          >
+                            {query.priority} Priority
+                          </span>
+                          <span className="px-2 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                            {query.type}
+                          </span>
+                        </div>
+                        <h4 className="font-semibold text-gray-900 mb-1">
+                          {query.subject}
+                        </h4>
+                        <p className="text-gray-600 text-sm mb-2">
+                          {query.message}
+                        </p>
+                        <div className="flex items-center space-x-4 text-xs text-gray-500">
+                          <span>From: {query.name}</span>
+                          <span>Email: {query.email}</span>
+                          <span>Phone: {query.phone}</span>
+                          <span>
+                            Date:{" "}
+                            {new Date(query.timestamp).toLocaleDateString()}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-sm text-gray-500">
+                          {new Date(query.timestamp).toLocaleDateString()}
+                        </span>
+                        <Eye className="w-4 h-4 text-gray-400" />
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         )}

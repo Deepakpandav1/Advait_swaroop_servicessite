@@ -10,6 +10,7 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PerformanceOptimizer from "./components/PerformanceOptimizer";
+import { LocationPermissionRequest } from "./components/LocationPermissionRequest";
 
 import TestimonialsSlider from "./components/TestimonialsSlider";
 
@@ -113,6 +114,7 @@ function App() {
   return (
     <>
       <PerformanceOptimizer />
+      <LocationPermissionRequest />
       <Header />
       <div className="pt-24 min-h-screen bg-white [background-image:radial-gradient(#e6e7e9_10px,transparent_10px)] [background-size:16px_16px] bg-fixed font-roboto">
         {/* Hero Section */}

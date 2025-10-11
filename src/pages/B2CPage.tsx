@@ -32,6 +32,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import SEOHead from "../components/SEOHead";
 import { createTicket } from "../utils/ticketManager";
 import { pageSEOData } from "../utils/seoData";
+import { useLocationTracking } from "../hooks/useLocationTracking";
 
 export default function B2CPage() {
   const [selectedService, setSelectedService] = useState<string | null>(null);
@@ -45,6 +46,13 @@ export default function B2CPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  // Location tracking
+  const {
+    trackService,
+    requestLocationPermission,
+    requestNotificationPermission,
+  } = useLocationTracking();
 
   const b2cServices = [
     {
@@ -412,7 +420,13 @@ export default function B2CPage() {
                     type="text"
                     placeholder="Search B2C services..."
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                      // Track search with location
+                      if (e.target.value.length > 2) {
+                        trackService("B2C", "Search", e.target.value);
+                      }
+                    }}
                     className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0b234a] focus:border-transparent text-lg"
                   />
                 </div>
@@ -485,11 +499,19 @@ export default function B2CPage() {
                 <div
                   key={service.id}
                   className={`${service.bgColor} ${service.borderColor} border-2 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer`}
-                  onClick={() =>
+                  onClick={() => {
                     setSelectedService(
                       selectedService === service.id ? null : service.id
-                    )
-                  }
+                    );
+                    // Track service selection with location
+                    if (selectedService !== service.id) {
+                      trackService(
+                        "B2C",
+                        service.name,
+                        `Selected ${service.name} service`
+                      );
+                    }
+                  }}
                 >
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center space-x-4">
