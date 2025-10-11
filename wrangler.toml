@@ -1,24 +1,10 @@
-name = "advait-swaroop-services"
+name = "advaitsswaroopservices"
 compatibility_date = "2024-12-19"
 compatibility_flags = ["nodejs_compat"]
 
-[env.production]
-name = "advait-swaroop-services"
-route = "www.advaitswaroopservices.com/*"
-
-[env.staging]
-name = "advait-swaroop-services-staging"
-route = "staging.advaitswaroopservices.com/*"
-
-# Pages configuration
-[pages]
-name = "advait-swaroop-services"
-source = "./dist"
-
-# Build configuration
-[build]
-command = "npm run build"
-cwd = "."
+# Static site configuration
+[assets]
+directory = "./dist"
 
 # Environment variables
 [vars]
