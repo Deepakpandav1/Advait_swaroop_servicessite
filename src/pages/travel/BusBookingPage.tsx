@@ -320,7 +320,7 @@ export default function BusBookingPage() {
           ]}
         />
       </div>
-      <div className="pt-24 min-h-screen bg-white [background-image:radial-gradient(#e6e7e9_10px,transparent_10px)] [background-size:16px_16px] bg-fixed">
+      <div className="pt-10 min-h-screen bg-white [background-image:radial-gradient(#e6e7e9_10px,transparent_10px)] [background-size:16px_16px] bg-fixed">
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-[#0b234a] to-[#1e3a5f] py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
