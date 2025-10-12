@@ -373,30 +373,6 @@ export default function VisaServicesPage() {
       </div>
       <div className="pt-24 min-h-screen bg-white [background-image:radial-gradient(#e6e7e9_10px,transparent_10px)] [background-size:16px_16px] bg-fixed font-roboto">
         {/* Hero Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="bg-white rounded-3xl p-12 shadow-xl border-2 border-[#E6B837]">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Globe className="w-10 h-10 text-white" />
-                </div>
-                <h1 className="text-5xl font-bold text-[#0b234a] mb-6">
-                  Visa Services
-                </h1>
-                <img
-                  className="h-2 rounded-3xl mx-auto mb-8"
-                  src="/gline.png"
-                  alt=""
-                />
-                <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto">
-                  Get your visa with expert guidance and high success rate. We
-                  handle all types of visas for countries worldwide with
-                  professional assistance and documentation support.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Booking Form Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
