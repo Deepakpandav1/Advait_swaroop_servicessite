@@ -30,7 +30,7 @@ export default function Footer() {
                   className="h-auto w-96"
                 />
               </div>
-              <p className="text-gray-300 mb-6 leading-relaxed text-justify">
+              <p className="text-gray-300 mb-4 leading-normal text-justify">
                 Your trusted partner for comprehensive service solutions across
                 education, travel, insurance, and government facilitation since
                 2018.

@@ -406,7 +406,7 @@ export default function B2CPage() {
                 Business to Citizen
                 <span className="block text-[#E6B837]">Services</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto text-justify">
                 Comprehensive business-to-consumer services for all your digital
                 needs. From digital signatures to recharges, we provide secure
                 and reliable solutions.
@@ -489,7 +489,7 @@ export default function B2CPage() {
               <h2 className="text-4xl font-bold text-[#0b234a] mb-4">
                 Available B2C Services
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 text-justify">
                 Comprehensive list of business-to-consumer services we provide
               </p>
             </div>
@@ -595,18 +595,23 @@ export default function B2CPage() {
                         </p>
                       </div>
 
-                      <div className="flex space-x-4">
-                        <a
-                          href={service.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center bg-[#0b234a] text-white px-4 py-2 rounded-lg hover:bg-[#1e3a5f] transition-colors"
+                      <div className="text-center">
+                        <button
+                          onClick={() => {
+                            // Scroll to the Request Free Consultation section
+                            const formSection = document.querySelector(
+                              "section:last-of-type"
+                            );
+                            if (formSection) {
+                              formSection.scrollIntoView({
+                                behavior: "smooth",
+                              });
+                            }
+                          }}
+                          className="inline-flex items-center bg-gradient-to-r from-[#0b234a] to-[#1e3a5f] text-white px-6 py-3 rounded-lg hover:from-[#1e3a5f] hover:to-[#0b234a] transition-all duration-300 transform hover:scale-105 font-semibold"
                         >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Official Website
-                        </a>
-                        <button className="flex items-center bg-[#E6B837] text-[#0b234a] px-4 py-2 rounded-lg hover:bg-[#d4a94b] transition-colors font-semibold">
-                          Get Service
+                          Apply Now
+                          <ArrowRight className="w-4 h-4 ml-2" />
                         </button>
                       </div>
                     </div>
@@ -618,13 +623,13 @@ export default function B2CPage() {
         </section>
 
         {/* How It Works Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-[#0b234a] mb-4">
                 How It Works
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 text-justify">
                 Simple steps to access B2C services
               </p>
             </div>
@@ -676,7 +681,7 @@ export default function B2CPage() {
         </section>
 
         {/* Request Form Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 mb-8 relative overflow-hidden bg-gray-50">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gray-50">
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#E6B837] rounded-full opacity-10 animate-pulse"></div>
@@ -696,7 +701,7 @@ export default function B2CPage() {
                 Need Help with B2C Services?
               </h2>
               <p
-                className="text-xl text-gray-600 mb-8 animate-fadeIn"
+                className="text-xl text-gray-600 mb-8 animate-fadeIn text-justify"
                 style={{ animationDelay: "0.2s" }}
               >
                 Get professional assistance for all your business-to-consumer
