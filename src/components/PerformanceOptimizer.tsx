@@ -105,11 +105,30 @@ export default function PerformanceOptimizer() {
       }
     }
 
-    // Add service worker for caching
+    // Add service worker for caching with update handling
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").catch(() => {
-        // Service worker registration failed, but that's okay
-      });
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then((registration) => {
+          // Check for updates
+          registration.addEventListener("updatefound", () => {
+            const newWorker = registration.installing;
+            if (newWorker) {
+              newWorker.addEventListener("statechange", () => {
+                if (
+                  newWorker.state === "installed" &&
+                  navigator.serviceWorker.controller
+                ) {
+                  // New service worker is available, reload the page
+                  window.location.reload();
+                }
+              });
+            }
+          });
+        })
+        .catch(() => {
+          // Service worker registration failed, but that's okay
+        });
     }
   }, []);
 

@@ -184,6 +184,9 @@
 
     <div id="app"></div>
     <script>
+      // Cache busting and force refresh logic
+      const CACHE_VERSION = "v" + Date.now();
+
       // Ensure correct title is set and override any cached titles
       document.title =
         "Advait Swaroop Services - Digital Services Platform | Government Services, Travel Booking & Business Solutions";
@@ -206,6 +209,26 @@
         childList: true,
         subtree: true,
       });
+
+      // Force cache refresh on page load
+      if ("caches" in window) {
+        caches.keys().then((cacheNames) => {
+          cacheNames.forEach((cacheName) => {
+            if (cacheName.includes("advait-swaroop-services")) {
+              caches.delete(cacheName);
+            }
+          });
+        });
+      }
+
+      // Unregister old service workers
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          registrations.forEach((registration) => {
+            registration.unregister();
+          });
+        });
+      }
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

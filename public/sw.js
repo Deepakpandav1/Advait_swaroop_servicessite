@@ -1,5 +1,5 @@
 // Service Worker for Advait Swaroop Services
-const CACHE_NAME = "advait-swaroop-services-v1";
+const CACHE_NAME = "advait-swaroop-services-v" + Date.now();
 const urlsToCache = [
   "/",
   "/src/styles.css",
@@ -22,13 +22,15 @@ self.addEventListener("install", (event) => {
 // Fetch event
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      // Return cached version or fetch from network
-      if (response) {
+    fetch(event.request)
+      .then((response) => {
+        // Always try network first, then cache as fallback
         return response;
-      }
-      return fetch(event.request);
-    })
+      })
+      .catch(() => {
+        // Only use cache if network fails
+        return caches.match(event.request);
+      })
   );
 });
 
