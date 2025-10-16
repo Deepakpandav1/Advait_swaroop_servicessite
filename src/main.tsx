@@ -7,6 +7,7 @@ import {
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import "./styles.css";
 import reportWebVitals from "./reportWebVitals.ts";
@@ -57,7 +58,12 @@ const rootRoute = createRootRoute({
       initializeAnalytics();
     }, []);
 
-    return <Outlet />;
+    return (
+      <>
+        <Outlet />
+        <SpeedInsights />
+      </>
+    );
   },
 });
 
