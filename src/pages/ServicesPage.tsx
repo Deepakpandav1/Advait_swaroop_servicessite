@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Breadcrumb from "../components/Breadcrumb";
+import SEOHead from "../components/SEOHead";
 import {
   Plane,
   GraduationCap,
@@ -11,6 +12,7 @@ import {
   Building,
   CreditCard,
 } from "lucide-react";
+import { pageSEOData } from "../utils/seoData";
 
 interface ServiceCard {
   id: string;
@@ -118,6 +120,13 @@ export default function ServicesPage() {
 
   return (
     <>
+      <SEOHead
+        title={pageSEOData.services.title}
+        description={pageSEOData.services.description}
+        keywords={pageSEOData.services.keywords}
+        canonicalUrl="https://www.advaitswaroopservices.com/services"
+        structuredData={pageSEOData.services.structuredData}
+      />
       <Header />
       <div className="pt-24 min-h-screen bg-white [background-image:radial-gradient(#e6e7e9_10px,transparent_10px)] [background-size:16px_16px] bg-fixed font-roboto">
         {/* Header Section */}

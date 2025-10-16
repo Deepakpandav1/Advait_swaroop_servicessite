@@ -146,6 +146,34 @@
         <priority>0.8</priority>
     </url>
 
+    <url>
+        <loc>https://www.advaitswaroopservices.com/g2c/vaccine-registration</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.advaitswaroopservices.com/g2c/csc-services</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.advaitswaroopservices.com/g2c/e-governance</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.advaitswaroopservices.com/g2c/rto-tax-payment</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <!-- B2C Sub-pages -->
     <url>
         <loc>https://www.advaitswaroopservices.com/b2c/dsc</loc>

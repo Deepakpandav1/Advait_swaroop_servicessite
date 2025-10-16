@@ -66,7 +66,8 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-6 py-12 text-center">
           <div className="bg-white rounded-3xl p-12 shadow-xl border-2 border-[#E6B837]">
             <h1 className="text-5xl font-bold text-[#0b234a] mb-6">
-              Welcome to Advait Swaroop Services - Digital Services Platform
+              Welcome to Advait Swaroop Services - Best Cyber Café in Sujanpur
+              Pathankot
             </h1>
             <img
               className="h-2 rounded-3xl mx-auto mb-8"
@@ -74,13 +75,16 @@ export default function HomePage() {
               alt="Advait Swaroop Services Digital Services Platform - Ad Services, AdServices, Advait Services, Government Services, Travel Booking, Business Solutions"
             />
             <p className="text-xl text-gray-600 mb-8">
-              Your comprehensive digital services platform for government
-              services, travel booking, business solutions, and more across
-              India. Get professional assistance with Aadhaar, PAN, PMJAY,
-              flight booking, and business services. Whether you search for "Ad
-              Services", "AdServices", "Advait Services", or "Advait Swaroop
-              Services" - we provide the best government services, travel
-              booking, and business solutions.
+              Your trusted partner in Sujanpur Pathankot for cyber café
+              services, travel agency, government services (Aadhaar, PAN,
+              certificates), bill payments, printing, scanning, and tour
+              packages to Kashmir, Himachal, Amritsar. Best digital services
+              center in Pathankot Punjab. Get professional assistance with
+              Aadhaar, PAN, PMJAY, flight booking, and business services.
+              Whether you search for "Ad Services", "AdServices", "Advait
+              Services", or "Advait Swaroop Services" - we provide the best
+              government services, travel booking, and business solutions in
+              Sujanpur Pathankot.
             </p>
             <div className="bg-gradient-to-r from-[#E6B837] to-[#d4a94b] rounded-full p-1 inline-block">
               <a
@@ -97,17 +101,22 @@ export default function HomePage() {
       {/* Hidden SEO Content for Search Engines */}
       <div className="hidden">
         <h2>
-          Ad Services, AdServices, Advait Services, Advait Swaroop Services
+          Ad Services, AdServices, Advait Services, Advait Swaroop Services,
+          Cyber Café Sujanpur, Travel Agency Pathankot
         </h2>
         <p>
           Ad Services India, AdServices India, Advait Services India, Advait
           Swaroop Services India. Government services, travel booking, business
-          solutions, digital services. Best Ad Services, Top AdServices,
-          Reliable Advait Services, Trusted Advait Swaroop Services. Ad Services
-          Mumbai, AdServices Delhi, Advait Services Bangalore, Advait Swaroop
-          Services Pune. Government assistance, travel assistance, business
-          assistance, digital assistance. Professional Ad Services, Expert
-          AdServices, Experienced Advait Services, Quality Advait Swaroop
+          solutions, digital services, vaccine registration services, CSC
+          services, common service centers, digital seva centers, e-governance
+          centres, RTO tax payment, vehicle tax payment, road tax payment. Best
+          Ad Services, Top AdServices, Reliable Advait Services, Trusted Advait
+          Swaroop Services. Ad Services Mumbai, AdServices Delhi, Advait
+          Services Bangalore, Advait Swaroop Services Pune. Government
+          assistance, travel assistance, business assistance, digital
+          assistance, vaccine registration assistance, CSC assistance,
+          e-governance assistance, RTO assistance. Professional Ad Services,
+          Expert AdServices, Experienced Advait Services, Quality Advait Swaroop
           Services. Quick Ad Services, Fast AdServices, Urgent Advait Services,
           Immediate Advait Swaroop Services. Online Ad Services, Digital
           AdServices, E-Advait Services, Web Advait Swaroop Services. Ad

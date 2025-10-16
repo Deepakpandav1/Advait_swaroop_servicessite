@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
+import GlobalVisitorCounter from "../../components/GlobalVisitorCounter";
 import {
   Lock,
   Eye,
@@ -450,6 +451,9 @@ export default function UnifiedLoginPage() {
           setError("");
         }}
       />
+
+      {/* Visitor Counter - Visible on admin login page only */}
+      <GlobalVisitorCounter showCounter={true} />
     </div>
   );
 }

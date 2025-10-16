@@ -31,8 +31,8 @@ export const organizationStructuredData = {
   ],
   "url": "https://www.advaitswaroopservices.com",
   "logo": "https://www.advaitswaroopservices.com/logo.png",
-  "description": "Comprehensive digital services platform offering government services, travel booking, business solutions, and more across India. Also known as Ad Services, AdServices, Advait Services, and Advait Swaroop Services.",
-  "foundingDate": "2024",
+  "description": "Comprehensive digital services platform offering government services, travel booking, business solutions, vaccine registration, CSC services, digital seva centers, e-governance centres, RTO tax payment, and more across India. Also known as Ad Services, AdServices, Advait Services, and Advait Swaroop Services.",
+  "foundingDate": "2018",
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "IN",
@@ -40,7 +40,7 @@ export const organizationStructuredData = {
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+91-XXXXXXXXXX",
+    "telephone": "+91-9780494854",
     "contactType": "customer service",
     "availableLanguage": ["English", "Hindi"]
   },
@@ -79,6 +79,38 @@ export const organizationStructuredData = {
           "@type": "Service",
           "name": "Business to Citizen Services",
           "description": "DSC services, recharges, and business solutions"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Vaccine Registration Services",
+          "description": "COVID-19 vaccine registration and vaccination services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "CSC Services",
+          "description": "Common Service Centers and Digital Seva Centers services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "E-Governance Services",
+          "description": "E-governance centres and digital governance services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "RTO Tax Payment Services",
+          "description": "Vehicle tax payment, road tax payment, and RTO services"
         }
       }
     ]
@@ -151,32 +183,32 @@ export const faqStructuredData = (faqs: Array<{question: string, answer: string}
 // Page-specific SEO data
 export const pageSEOData = {
   home: {
-    title: "Advait Swaroop Services - Digital Services Platform | Government Services, Travel Booking & Business Solutions",
-    description: "Comprehensive digital services platform offering government services, travel booking, business solutions, and more. Get assistance with Aadhaar, PAN, PMJAY, flight booking, and business services across India.",
+    title: "Advait Swaroop Services - Best Cyber Café in Sujanpur Pathankot | Travel, G2C & B2C Services",
+    description: "Advait Swaroop Services - Your trusted partner in Sujanpur Pathankot for cyber café services, travel agency, government services (Aadhaar, PAN, certificates), bill payments, printing, scanning, and tour packages to Kashmir, Himachal, Amritsar. Best digital services center in Pathankot Punjab.",
     keywords: generatePageKeywords('home'),
     structuredData: [organizationStructuredData, websiteStructuredData]
   },
   services: {
-    title: "Our Services - Government, Travel & Business Solutions | Advait Swaroop Services",
-    description: "Explore our comprehensive range of digital services including government services, travel booking, business solutions, and more. Professional assistance for all your service needs.",
+    title: "Our Services - Cyber Café, Travel Agency & Government Services in Sujanpur Pathankot | Advait Swaroop Services",
+    description: "Advait Swaroop Services offers comprehensive cyber café, travel agency, government services (Aadhaar, PAN, certificates), bill payments, printing, scanning, and tour packages in Sujanpur Pathankot. Your one-stop solution for all digital and travel needs in Punjab.",
     keywords: generatePageKeywords('services'),
     structuredData: [organizationStructuredData]
   },
   travel: {
-    title: "Travel Services - Flight, Bus, Rail & Visa Booking | Advait Swaroop Services",
-    description: "Complete travel solutions including flight booking, bus booking, rail tickets, and visa services. Professional travel assistance with competitive prices and excellent service.",
+    title: "Tour & Travel Services in Pathankot | Kashmir, Himachal & More | Advait Swaroop Services",
+    description: "Best travel agency in Sujanpur Pathankot offering tour packages to Kashmir, Himachal, Amritsar, Jammu, Dalhousie, Kullu Manali. Domestic & international holiday packages, flight booking, hotel booking, visa assistance. Custom tour packages from Pathankot.",
     keywords: generatePageKeywords('travel'),
     structuredData: [serviceStructuredData("Travel Services", "Complete travel solutions including flight, bus, rail, and visa services", "https://www.advaitswaroopservices.com/travel")]
   },
   g2c: {
-    title: "Government to Citizen Services - Aadhaar, PAN, PMJAY & More | Advait Swaroop Services",
-    description: "Professional assistance for all government services including Aadhaar card, PAN card, PMJAY, E-Shram, and more. Expert guidance for government service applications.",
+    title: "G2C Government Services - Aadhaar, PAN, Certificates in Sujanpur Pathankot | Advait Swaroop Services",
+    description: "Best government services center in Sujanpur Pathankot. Aadhaar update center, PAN card application, birth certificate assistance, voter ID services, caste/income/residence certificates, ration card application. Online government form filling center in Pathankot Punjab.",
     keywords: generatePageKeywords('g2c'),
-    structuredData: [serviceStructuredData("Government to Citizen Services", "Complete government service assistance including Aadhaar, PAN, PMJAY, and more", "https://www.advaitswaroopservices.com/g2c")]
+    structuredData: [serviceStructuredData("Government to Citizen Services", "Complete government service assistance including Aadhaar, PAN, PMJAY, vaccine registration, CSC services, digital seva centers, e-governance centres, RTO tax payment, and more", "https://www.advaitswaroopservices.com/g2c")]
   },
   b2c: {
-    title: "Business to Citizen Services - DSC, Recharge & Business Solutions | Advait Swaroop Services",
-    description: "Professional business services including DSC (Digital Signature Certificate), mobile recharges, and business solutions. Streamline your business operations with our expert services.",
+    title: "B2C Services - Bill Payments, Recharges & Digital Services in Sujanpur Pathankot | Advait Swaroop Services",
+    description: "Best B2C services in Sujanpur Pathankot. Mobile recharge, DTH recharge, utility bill payment, electricity bill payment, water bill payment, money transfer, online ticket booking, domestic remittance. Your trusted digital services center in Pathankot Punjab.",
     keywords: generatePageKeywords('b2c'),
     structuredData: [serviceStructuredData("Business to Citizen Services", "Professional business services including DSC, recharges, and business solutions", "https://www.advaitswaroopservices.com/b2c")]
   },
@@ -241,6 +273,30 @@ export const g2cServicesSEO = {
     description: "Professional PMJAY (Ayushman Bharat) services including enrollment, card generation, and hospital empanelment. Expert assistance for health insurance benefits.",
     keywords: "PMJAY, Ayushman Bharat, health insurance, PMJAY card, health benefits, medical insurance",
     structuredData: [serviceStructuredData("PMJAY Services", "PMJAY Ayushman Bharat health insurance services", "https://www.advaitswaroopservices.com/g2c/pmjay")]
+  },
+  vaccineRegistration: {
+    title: "Vaccine Registration Services - COVID-19 Vaccination | Advait Swaroop Services",
+    description: "Professional vaccine registration services for COVID-19 vaccination. Expert assistance with vaccine registration, appointment booking, and vaccination support across India.",
+    keywords: "vaccine registration, COVID-19 vaccine, vaccination services, vaccine appointment, vaccine booking, immunization services",
+    structuredData: [serviceStructuredData("Vaccine Registration Services", "COVID-19 vaccine registration and vaccination services", "https://www.advaitswaroopservices.com/g2c/vaccine-registration")]
+  },
+  cscServices: {
+    title: "CSC Services - Common Service Centers & Digital Seva Centers | Advait Swaroop Services",
+    description: "Professional CSC (Common Service Centers) and Digital Seva Centers services. Expert assistance with CSC registration, digital seva services, and government service facilitation.",
+    keywords: "CSC services, common service centers, digital seva centers, CSC registration, digital seva kendra, CSC center services",
+    structuredData: [serviceStructuredData("CSC Services", "Common Service Centers and Digital Seva Centers services", "https://www.advaitswaroopservices.com/g2c/csc-services")]
+  },
+  eGovernance: {
+    title: "E-Governance Services - Digital Governance Centers | Advait Swaroop Services",
+    description: "Professional e-governance services and digital governance centers. Expert assistance with e-governance applications, digital services, and government digital initiatives.",
+    keywords: "e-governance services, e-governance centres, digital governance, e-governance centers, digital government services, online governance",
+    structuredData: [serviceStructuredData("E-Governance Services", "E-governance centres and digital governance services", "https://www.advaitswaroopservices.com/g2c/e-governance")]
+  },
+  rtoTaxPayment: {
+    title: "RTO Tax Payment Services - Vehicle Tax & Road Tax Payment | Advait Swaroop Services",
+    description: "Professional RTO tax payment services including vehicle tax payment, road tax payment, and motor vehicle tax services. Expert assistance with all RTO-related tax payments.",
+    keywords: "RTO tax payment, vehicle tax payment, road tax payment, motor vehicle tax, transport tax payment, RTO services, vehicle tax services",
+    structuredData: [serviceStructuredData("RTO Tax Payment Services", "Vehicle tax payment, road tax payment, and RTO services", "https://www.advaitswaroopservices.com/g2c/rto-tax-payment")]
   }
 };
 
